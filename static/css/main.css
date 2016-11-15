@@ -1,0 +1,96 @@
+input[type=text], select, input[type=password], input[type=date] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-family: montserrat, arial, verdana;
+    font-size: 15px;
+    color: #777777;
+}
+
+
+#submit {
+  width: 100px;
+  float: right;
+  background-color: #0066CC;
+  color: white;
+  font-weight: bold;
+  padding: 10px 5px;
+  margin: 10px 5px 0px 5px;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  font-family: montserrat, arial, verdana;
+  font-size: 15px;
+}
+
+#prev{
+  width: 100px;
+  float: left;
+  background-color: #0066CC;
+  color: white;
+  font-weight: bold;
+  padding: 10px 5px;
+  margin: 10px 5px 0px 5px;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  font-family: montserrat, arial, verdana;
+  font-size: 15px;
+}
+
+#next{
+  width: 100px;
+  float: right;
+  background-color: #0066CC;
+  color: white;
+  font-weight: bold;
+  padding: 10px 5px;
+  margin: 10px 5px 0px 5px;
+  border: 0 none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: montserrat, arial, verdana;
+  font-size: 15px;
+}
+
+#submit:hover {
+  background-color: #004488;
+  -webkit-transition-duration: .7s; /* Safari */
+  transition-duration: .7s;
+  cursor: pointer;
+}
+
+#next:hover {
+  background-color: #004488;
+  -webkit-transition-duration: .7s; /* Safari */
+  transition-duration: .7s;
+  cursor: pointer;
+}
+
+#prev:hover {
+  background-color: #004488;
+  -webkit-transition-duration: .7s; /* Safari */
+  transition-duration: .7s;
+  cursor: pointer;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+body {
+    background-color: gray;
+}
+
+#form {
+  font-family: montserrat, arial, verdana;
+  width: 380px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
