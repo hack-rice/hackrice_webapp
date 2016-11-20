@@ -1,16 +1,19 @@
 
 function nextPageFocus(cur_page) {
 	var pages = ["university", "experience", "resume", "linkedin", "other"];
-    window.alert(pages);
     window.alert(cur_page);
-	for (var page in pages){
-    window.alert(page);
-		if(page.equals(cur_page)){
-			document.getElementById(page).style.display="block";
-		} else {
-   		document.getElementById(page).style.display="none";
-  	}
+    window.alert(pages);
+	for (idx = 0; idx < pages.length; idx++){
+    window.alert(pages[idx]);
+		if (pages[idx] == (cur_page)){
+		document.getElementById(pages[idx]).style.display="block";
 	}
+	else{
+   	    document.getElementById(pages[idx]).style.display="none";
+   	}
+  	}
+
+
 }
 
 
