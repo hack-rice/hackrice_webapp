@@ -5,6 +5,7 @@ A website for submitting and reviewing applications to HackRice 2017. More info 
 ## Contributors
 
 @jarroddunne
+@smahesh1
 
 ## License
 
