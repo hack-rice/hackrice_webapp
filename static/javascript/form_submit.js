@@ -36,6 +36,9 @@ function formToJSON() {
       add(objectGraph, $(this).attr('name').split('.'), $(this).val());
     }
   });
+  var univ = document.getElementById("university")
+  add(objectGraph, "university".split('.'), univ.options[univ.selectedIndex].value);
+  console.log(univ.options[univ.selectedIndex].value)
   return JSON.stringify(objectGraph);
 }
 
