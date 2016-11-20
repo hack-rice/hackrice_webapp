@@ -1,10 +1,9 @@
 
 function nextPageFocus(cur_page) {
-	var pages = ["university", "experience", "resume", "linkedin", "other"];
-    window.alert(cur_page);
-    window.alert(pages);
+	var pages = ["university", "experience", "resume_linkedin", "other"];
+
 	for (idx = 0; idx < pages.length; idx++){
-    window.alert(pages[idx]);
+
 		if (pages[idx] == (cur_page)){
 		document.getElementById(pages[idx]).style.display="block";
 	}
