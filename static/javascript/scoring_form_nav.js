@@ -5,15 +5,12 @@ function nextPageFocus(cur_page) {
     window.alert(cur_page);
 	for (var page in pages){
     window.alert(page);
-		if page.equals(cur_page){
-		document.getElementById(page).style.display="block";
-	}
-	else{
-   	    document.getElementById(page).style.display="none";
-   	}
+		if(page.equals(cur_page)){
+			document.getElementById(page).style.display="block";
+		} else {
+   		document.getElementById(page).style.display="none";
   	}
-
-
+	}
 }
 
 

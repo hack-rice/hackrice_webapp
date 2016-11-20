@@ -7,6 +7,7 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="static/javascript/scoring_form_nav.js"></script>
     <!--<link rel="stylesheet" type="text/css" href="static/css/main.css">-->
+    <script src="static/javascript/scoring_submit.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/scoring.css">
   </head>
   <body>
@@ -14,34 +15,41 @@
       <h1>Application Scoring Form</h1>
       <div id="university" class="section" style="display:block">
         <h2>General Info</h2>
-        <h3>Email: </h3>
-        <h3>University: </h3>
-        <input type="checkbox" name="university" value="rice"/><label>Rice University Student</label>
-        <input type="checkbox" name="university" value="u_of_h"/><label>University of Houston</label>
+        <h3>Email: </h3><p id="email"></p>
+        <h3>University: </h3><p id="university"></p>
+        <input type="radio" name="university" value="rice"/><label>Rice University</label>
+        <input type="radio" name="university" value="u_of_h"/><label>University of Houston</label>
+        <input type="radio" name="university" value="other" checked="checked"/><label>Other</label>
+
         <button type="button" id="next" onclick="nextPageFocus()">Next</button>
       </div>
-      <div id="experience" class="section" style="display:none">
+      <div id="experience" class="section" style="display:block">
         <h2>Experience</h2>
         <h3>Previous Hackathons</h3>
-        <input type="checkbox" name="hackathons" value="first_time"><label>First Time Hacker</label>
-        <input type="checkbox" name="hackathons" value="experienced"><label>Experienced Hacker (previous HackRice)</label>
+        <input type="radio" name="hackathons" value="3"><label>First Time Hacker</label>
+        <input type="radio" name="hackathons" value="1"><label>Experienced Hacker (previous HackRice, or >=3 hackathons)</label>
+        <input type="radio" name="hackathons" value="0"><label>Other</label>
         <h3>Projects</h3>
         <input type="checkbox" name="projects" value="has_project"><label>At Least 1 project on resume/linkedin/github</label></br>
         <input type="checkbox" name="projects" value="substantial_project"><label>Project(s) shows more than a basic level of computer science skill</label></br>
         <input type="checkbox" name="projects" value="personal_website"><label>Personal projects includes a personal website</label>
       </div>
-      <div id="resume_linkedin" class="section" style="display:none">
+      <div id="resume_linkedin" class="section" style="display:block">
         <h2>Resume and LinkedIn</h2>
-        <input type="checkbox" name="work_experience" value="work_experience"><label>Internship or work with tech company</label></br>
-        <input type="checkbox" name="hackathons" value="first_time"><label>At least one computer science related award or honor</label></br>
-        <input type="checkbox" name="hackathons" value="first_time"><label>Worked for startup OR done research at university or lab</label>
+        <h4>GitHub: </h4><a href="">None</a>
+        <h4>Personal Website: </h4><a href="">None</a>
+        <h4>LinkedIn: </h4><a href="">None</a><br/>
+        <input type="checkbox" name="resume_linkedin" value="work_experience"><label>Internship or work with tech company</label></br>
+        <input type="checkbox" name="resume_linkedin" value="award"><label>At least one computer science related award or honor</label></br>
+        <input type="checkbox" name="resume_linkedin" value="startup_research"><label>Worked for startup OR done research at university or lab</label>
       </div>
       <div id="other" class="section" style="display:none">
         <h2>Other</h2>
         <input type="checkbox" name="traveling" value="traveling"><label>Traveling </label></br>
-        <input type="checkbox" name="favorite_project_answered" value="favorite_project_answered"><label>Answered favorite hackathon project</label></br>
-        <input type="checkbox" name="good_favorite_project_answered" value="good_favorite_project_answered"><label>Substantial answer to favorite hackathon project</label>
+        <input type="checkbox" name="favorite_project" value="favorite_project_answered"><label>Answered favorite hackathon project</label></br>
+        <input type="checkbox" name="favorite_project" value="good_favorite_project_answered"><label>Substantial answer to favorite hackathon project</label>
       </div>
+      <button type="button" id="submit" onclick="submitForm()">Submit</button>
     </form>
   </body>
 </html>
