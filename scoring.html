@@ -21,9 +21,9 @@
         <input type="radio" name="university" value="u_of_h"/><label>University of Houston</label>
         <input type="radio" name="university" value="other" checked="checked"/><label>Other</label>
 
-        <button type="button" id="next" onclick="nextPageFocus()">Next</button>
+        <button type="button" id="next" onclick="nextPageFocus('experience')">Next</button>
       </div>
-      <div id="experience" class="section" style="display:block">
+      <div id="experience" class="section" style="display:none">
         <h2>Experience</h2>
         <h3>Previous Hackathons</h3>
         <input type="radio" name="hackathons" value="3"><label>First Time Hacker</label>
@@ -33,8 +33,10 @@
         <input type="checkbox" name="projects" value="has_project"><label>At Least 1 project on resume/linkedin/github</label></br>
         <input type="checkbox" name="projects" value="substantial_project"><label>Project(s) shows more than a basic level of computer science skill</label></br>
         <input type="checkbox" name="projects" value="personal_website"><label>Personal projects includes a personal website</label>
+        <button type="button" id="prev" onclick="nextPageFocus('university')">Prev</button>
+        <button type="button" id="next" onclick="nextPageFocus('resume_linkedin')">Next</button>
       </div>
-      <div id="resume_linkedin" class="section" style="display:block">
+      <div id="resume_linkedin" class="section" style="display:none">
         <h2>Resume and LinkedIn</h2>
         <h4>GitHub: </h4><a href="">None</a>
         <h4>Personal Website: </h4><a href="">None</a>
@@ -42,14 +44,18 @@
         <input type="checkbox" name="resume_linkedin" value="work_experience"><label>Internship or work with tech company</label></br>
         <input type="checkbox" name="resume_linkedin" value="award"><label>At least one computer science related award or honor</label></br>
         <input type="checkbox" name="resume_linkedin" value="startup_research"><label>Worked for startup OR done research at university or lab</label>
+        <button type="button" id="prev" onclick="nextPageFocus('experience')">Prev</button>
+        <button type="button" id="next" onclick="nextPageFocus('other')">Next</button>
       </div>
       <div id="other" class="section" style="display:none">
         <h2>Other</h2>
         <input type="checkbox" name="traveling" value="traveling"><label>Traveling </label></br>
         <input type="checkbox" name="favorite_project" value="favorite_project_answered"><label>Answered favorite hackathon project</label></br>
         <input type="checkbox" name="favorite_project" value="good_favorite_project_answered"><label>Substantial answer to favorite hackathon project</label>
+        <button type="button" id="prev" onclick="nextPageFocus('resume_linkedin')">Prev</button>
+        <button type="button" id="submit" onclick="submitForm()">Submit</button>
       </div>
-      <button type="button" id="submit" onclick="submitForm()">Submit</button>
+      
     </form>
   </body>
 </html>
