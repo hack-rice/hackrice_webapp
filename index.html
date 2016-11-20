@@ -17,7 +17,7 @@
 	      <input id="password" type="password" name="password" placeholder="Password" />
 				<br>
 	      <input id="confirmed_password" type="password" name="confirmed_password" placeholder="Confirmed Password" />
-				<button type="button" id="next" onclick="page2Focus()">Next</button>
+				<button type="button" id="next" onclick="nextPageFocus('form_page_2')">Next</button>
 			</div>
 			<div id="form_page_2" style="display:none">
 				<input id="first_name" type="text" name="first_name" placeholder="First Name" />
@@ -2211,8 +2211,8 @@
 	        <option value="Youngstown State University (OH)">Youngstown State University (OH)</option>
 	        <option value="other">Other</option>
 	      </select>
-				<button type="button" id="prev" onclick="page1Focus()">Prev</button>
-				<button type="button" id="next" onclick="page3Focus()">Next</button>
+				<button type="button" id="prev" onclick="nextPageFocus('form_page_1')">Prev</button>
+				<button type="button" id="next" onclick="nextPageFocus('form_page_3')">Next</button>
 			</div>
 			<div id="form_page_3" style="display:none">
 				</br>
@@ -2222,7 +2222,7 @@
 	      <br>
 	      <input id="linkedin" type="text" name="linkedin" placeholder="linkedin.com">
 	      <br>
-				<button type="button" id="prev" onclick="page2Focus()">Prev</button>
+				<button type="button" id="prev" onclick="nextPageFocus('form_page_2')">Prev</button>
 	      <button type="button" id="submit" onclick="submitForm()">Submit</button>
 			</div>
 		</form>
