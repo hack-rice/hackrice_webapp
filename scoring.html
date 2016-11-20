@@ -8,12 +8,13 @@
     <script src="static/javascript/scoring_form_nav.js"></script>
     <!--<link rel="stylesheet" type="text/css" href="static/css/main.css">-->
     <script src="static/javascript/scoring_submit.js"></script>
+    <script src="static/javascript/load_scoring_form.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/scoring.css">
   </head>
   <body>
     <form id="form" >
       <h1>Application Scoring Form</h1>
-      <div id="university" class="section" style="display:block">
+      <div id="general" class="section" style="display:block">
         <h2>General Info</h2>
         <h3>Email: </h3><p id="email"></p>
         <h3>University: </h3><p id="university"></p>
@@ -55,7 +56,7 @@
         <button type="button" id="prev" onclick="nextPageFocus('resume_linkedin')">Prev</button>
         <button type="button" id="submit" onclick="submitForm()">Submit</button>
       </div>
-      
+
     </form>
   </body>
 </html>
