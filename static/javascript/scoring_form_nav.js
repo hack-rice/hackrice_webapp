@@ -1,6 +1,6 @@
 
 function nextPageFocus(cur_page) {
-	var pages = ["university", "experience", "resume_linkedin", "other"];
+	var pages = ["general", "experience", "resume_linkedin", "other"];
 
 	for (idx = 0; idx < pages.length; idx++){
 
