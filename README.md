@@ -2,10 +2,38 @@
 
 A website for submitting and reviewing applications to HackRice 2017. More info at hack.rice.edu.
 
+## Instructions
+
+1. Checkout the repository
+  ```
+  git clone https://github.com/hack-rice/hackrice_webapp.git
+  cd hackrice_webapp
+  ```
+  
+2. Install flask
+  ```
+  pip install flask
+  ```
+
+3. Set the `FLASK_APP` environment variable by adding the following to your `.bashrc` or `.zshrc` or whatever you're using
+  ``` 
+  export FLASK_APP=/path/to/hackrice_webapp/hackrice.py
+  ```
+
+4. Run the app from the main project directory
+  ```
+  flask run
+  ```
+
+5. Point your browser to either `http://127.0.0.1:5000/` or `http://localhost:5000/`
+
 ## Contributors
 
-@jarroddunne
-@smahesh1
+[@jarroddunne](http://github.com/jarroddunne)
+
+[@smahesh1](http://github.com/smahesh1)
+
+[@prb2](http://github.com/prb2)
 
 ## License
 
