@@ -1,0 +1,18 @@
+Written by Avery Jordan - 1/27/16
+
+Provides brief documentation of data structures for use in Jinja templating.
+
+
+#1      The review administration system assumes some sort of object structure that has
+        attributes as follows:
+
+            User {
+            id = #######
+            name = "HackRice Team Member Bob"
+            apps = ### - quota of apps to be reviewed
+            due_date = mm/dd/yyyy - the due date for the MOST RECENTLY ADDED quota segment -> i.e. if there are overdue
+                                    apps these are all grouped under the most recently given due date for the most
+                                    recently assigned set of application reviews
+            overdue = ### number of apps not completed before the present group of applications were assigned
+            }
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HackRice Review - Admin</title>
+    <link rel="stylesheet" href="../static/styles/Skeleton/css/skeleton.css">
+
+
+</head>
+<body style="background-color: rgba(38,46,68,.05)">
+<div class="container">
+    <!--Navbar-->
+    <div class="row" style="display: inline-block">
+        <!--<img style="display: inline-block" src="HackWiess Logo.png" height="5%" width="5%"/>-->
+        <h2 style="display: inline-block; vertical-align: middle">A navbar can go here</h2>
+        <a style="display: inline-block; vertical-align: middle" href="index.html" class="u-pull-right">Logout</a>
+    </div>
+    <div class="twelve columns">
+        <div class="row">
+            <div class="seven columns">
+                <h5 style="text-decoration: underline">Users</h5>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Reviewer Name</th>
+                        <th>Applications Due</th>
+                        <th>Most Recent Due Date</th>
+                        <th>Overdue Apps</th>
+                    </tr>
+                    </thead>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.app_quota }}</td>
+                            <td>{{ user.due_date }}</td>
+                            <td>{{ user.apps_overdue}} </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="five columns">
+                <h5 style="text-decoration: underline">Options for {{ selected.name }}</h5>
+                <button class="u-full-width">Email {{ selected.name }}</button>
+                <form>
+                    <div class="row">
+                        <label for="redisQuota">Redistribute Apps</label>
+                        <input type="number" placeholder="Enter a number" id="redisQuota">
+                        <input class="button-primary" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
