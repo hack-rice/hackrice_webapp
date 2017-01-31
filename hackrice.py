@@ -26,6 +26,6 @@ def review_admin():
     Loads the admin interface for managing HackRice reviewers.
     """
     user_list = make_fake_users()
-    selected = User(1, "Bob", 1, 1, 1)
-    return render_template('review-admin.html', users=user_list, selected=selected)
+    # selected = User(1, "Bob", 1, 1, 1)
+    return render_template('review-admin.html', users=user_list)
 

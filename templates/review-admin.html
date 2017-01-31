@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <title>HackRice Review - Admin</title>
     <link rel="stylesheet" href="../static/styles/Skeleton/css/skeleton.css">
+{#    <link rel="stylesheet" href="../static/styles/william.css">#}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 
 </head>
 <body style="background-color: rgba(38,46,68,.05)">
 <div class="container">
     <!--Navbar-->
-    <div class="row" style="display: inline-block">
-        <!--<img style="display: inline-block" src="HackWiess Logo.png" height="5%" width="5%"/>-->
-        <h2 style="display: inline-block; vertical-align: middle">A navbar can go here</h2>
-        <a style="display: inline-block; vertical-align: middle" href="index.html" class="u-pull-right">Logout</a>
+     <!-- Navbar -->
+  <nav>
+
+    <img id="hr-logo" src="../logo.png">
+
+    <!-- Navbar elements -->f
+    <div class="nav-container">
+
     </div>
+
+  </nav>
     <div class="twelve columns">
         <div class="row">
             <div class="seven columns">
@@ -28,23 +36,27 @@
                         <th>Overdue Apps</th>
                     </tr>
                     </thead>
+
+                    <tbody id="users">
                     {% for user in users %}
-                        <tr>
-                            <td>{{ user.name }}</td>
-                            <td>{{ user.app_quota }}</td>
-                            <td>{{ user.due_date }}</td>
-                            <td>{{ user.apps_overdue}} </td>
+                        <tr id="{{ user.id }}">
+                            <td id="name">{{ user.name }}</td>
+                            <td id="quota">{{ user.app_quota }}</td>
+                            <td id="due_date">{{ user.due_date }}</td>
+                            <td id="overdue">{{ user.apps_overdue }} </td>
+                            <td id="email" style="display: none">{{ user.email }}</td>
                         </tr>
                     {% endfor %}
+                    </tbody>
                 </table>
             </div>
             <div class="five columns">
-                <h5 style="text-decoration: underline">Options for {{ selected.name }}</h5>
-                <button class="u-full-width">Email {{ selected.name }}</button>
+                <h5 style="text-decoration: underline">Options for: <span id="selected_name"></span></h5>
+                <button onclick="sendEmail()" class="u-full-width" id="reminder_email">Email</button>
                 <form>
                     <div class="row">
                         <label for="redisQuota">Redistribute Apps</label>
-                        <input type="number" placeholder="Enter a number" id="redisQuota">
+                        <input type="number" id="redisQuota">
                         <input class="button-primary" type="submit" value="Submit">
                     </div>
                 </form>
@@ -52,6 +64,7 @@
         </div>
     </div>
 </div>
-
 </body>
+
+<script type="text/javascript" src="../static/scripts/reviewer-jquery.js"></script>
 </html>
