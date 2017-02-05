@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HackRice Review - Admin</title>
+    <link rel="stylesheet" href="../static/styles/Skeleton/css/skeleton.css">
+{#    <link rel="stylesheet" href="../static/styles/william.css">#}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+</head>
+<body style="background-color: rgba(38,46,68,.05)">
+<div class="container">
+    <!--Navbar-->
+     <!-- Navbar -->
+  <nav>
+
+    <img id="hr-logo" src="../logo.png">
+
+    <!-- Navbar elements -->f
+    <div class="nav-container">
+
+    </div>
+
+  </nav>
+    <div class="twelve columns">
+        <div class="row">
+            <div class="seven columns">
+                <h5 style="text-decoration: underline">Users</h5>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Reviewer Name</th>
+                        <th>Applications Due</th>
+                        <th>Most Recent Due Date</th>
+                        <th>Overdue Apps</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="users">
+                    {% for user in users %}
+                        <tr id="{{ user.id }}">
+                            <td id="name">{{ user.name }}</td>
+                            <td id="quota">{{ user.app_quota }}</td>
+                            <td id="due_date">{{ user.due_date }}</td>
+                            <td id="overdue">{{ user.apps_overdue }} </td>
+                            <td id="email" style="display: none">{{ user.email }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="five columns">
+                <h5 style="text-decoration: underline">Options for: <span id="selected_name"></span></h5>
+                <button onclick="sendEmail()" class="u-full-width" id="reminder_email">Email</button>
+                <form>
+                    <div class="row">
+                        <label for="redisQuota">Redistribute Apps</label>
+                        <input type="number" id="redisQuota">
+                        <input class="button-primary" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../static/scripts/reviewer-jquery.js"></script>
+</html>

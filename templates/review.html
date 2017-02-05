@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Reviewing Application</title>
+  <meta name="description" content="Mockup for HackRice Webapp - Reviewing Application">
+  <meta name="author" content="William Wang">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONTS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/wtf-forms.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+
+    <img id="hr-logo" src="img/logo.png">
+
+    <!-- Navbar elements -->
+    <div class="nav-container">
+      <ul class="nav">
+          <li>
+            <span id="active-user">First Last</span>
+          </li>
+          <li><i id="nav-bars" class="fa fa-bars fa-2x"></i></li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <!-- Sidebar
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- Sidebar collapsed by default -->
+  <div id="sidebar" class="sidebar-collapse">
+
+    <div class="row">
+      <h4 class="u-pull-left">
+        <i class="fa fa-fw fa-user-circle"></i>
+        First Last
+      </h4>
+
+      <div class="u-pull-right">
+        <div class="u-pull-left">
+          <i id="sidebar-close" class="fa fa-close fa-lg"></i></li>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+      <h6>
+        <i class="fa fa-fw fa-tasks"></i>&nbsp;Progress at a glance
+      </h6>
+      <hr class="small">
+      <ul>
+        <li>Your next deadline is <a>01/31/2017</a>.</li>
+        <li><a><b>12</b></a> applications left to review.</li>
+      </ul>
+    </div>
+
+    <button style="position:fixed; bottom:25px;"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Logout</button>
+
+  </div>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div id="review" class="container container-fluid">
+    <div class="row" style="height:100%;">
+
+      <div class="five columns" id="review-form">
+        <h5 style="margin-bottom:5px;">Reviewing: Al Gorithm</h5>
+        <hr class="form-hr">
+        <form>
+          <div class="row form-block">
+            <div class="twelve columns">
+              <label class="lead-label" for="riceUH">Rice or University of Houston Student?</label>
+              <div class="twelve columns" id="riceUH">
+                <label class="control radio" style="margin-right:25px;">
+                  <input type="radio" name="rice-uh">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Rice</span>
+                </label>
+                <label class="control radio">
+                  <input type="radio" name="rice-uh">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">UH</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row form-block">
+            <div class="four columns">
+              <label class="lead-label" for="newHacker">New hacker?</label>
+              <label id="newHacker" class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                <span class="label-body">First time hacker</span>
+              </label>
+            </div>
+            <div class="eight columns">
+              <label class="lead-label" for="repeatHacker">Repeat hacker?</label>
+              <label id="repeatHacker" class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                <span class="label-body">Attended HackRice or 3 or more hackathons</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="row form-block">
+            <div class="twelve columns">
+              <label class="lead-label" for="projects">Projects</label>
+              <div id="projects">
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Has at least one project on resume/LinkedIn/GitHub</span>
+                </label>
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Project(s) show more than a basic level of computer science skill</span>
+                </label>
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Personal projects include a personal website</span>
+                </label>
+                <label class="" for="githubContributions">GitHub Contributions</label>
+
+                <div class="select" style="width: 125px;">
+	                <select aria-label="GitHub Contributions" id="githubContributions">
+	                  <option value="" disabled selected>Select</option>
+	                  <option value="Option 1">50-124</option>
+	                  <option value="Option 2">125-249</option>
+	                  <option value="Option 3">250+</option>
+	                </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row form-block">
+            <div class="twelve columns">
+              <label class="lead-label" for="projects">Resume and Linkedin</label>
+              <div id="projects">
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Have an internship or work with a tech company</span>
+                </label>
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">At least one computer science related award or honor</span>
+                </label>
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Worked for a startup OR done research at a university or lab</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row form-block">
+            <div class="twelve columns">
+              <label class="lead-label" for="other">Other</label>
+              <div id="other">
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Traveling from out of state</span>
+                </label>
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Answered the favorite hackathon project question</span>
+                </label>
+                <label class="control checkbox">
+                  <input type="checkbox">
+                  <span class="control-indicator"></span>
+                  <span class="label-body">Answer to favorite hackathon project well-developed and interesting</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <input class="button-primary" type="submit" value="Submit">
+        </form>
+        
+      </div>
+
+      <div class="seven columns" style="height:100%;">
+        <div id="app-links" class="twelve columns">
+          <ul class="u-pull-right">
+            <!-- <li><button><i class="fa fa-fw fa-file-text"></i>&nbsp;Resume</button></li> -->
+
+            <!-- TODO: integrate Github API calls and some postprocessing to count contributions automatically -->
+            <!-- Possibly this? https://github.com/IonicaBizau/github-calendar -->
+            <li>
+              <a class="button" href="https://github.com/torvalds" target="_blank">
+              <i class="fa fa-fw fa-github-square"></i>&nbsp;GitHub</a>
+            </li>
+
+            <li>
+              <a class="button" href="https://www.linkedin.com/in/linustorvalds/" target="_blank">
+              <i class="fa fa-fw fa-linkedin-square"></i>&nbsp;LinkedIn</a></li>
+          </ul>
+
+        </div>
+        <div id="embed-container" class="twelve columns">
+          <!-- iframe?
+          most pages don't allow embedding anyway...
+          https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors
+          -->
+
+          <!-- files must be public.. -->
+          <iframe id="resume" src="static/sample-resume.pdf" type="application/pdf"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- JS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script>
+$(function() {
+
+  $('#nav-bars').click(function() {
+    $('#sidebar').toggleClass('sidebar-collapse');
+  });
+
+  $('#sidebar-close').click(function() {
+    $('#sidebar').toggleClass('sidebar-collapse');
+  });
+
+});
+</script>
+
+<!-- End Document
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

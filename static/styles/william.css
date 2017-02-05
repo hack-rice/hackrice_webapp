@@ -1,0 +1,266 @@
+/*
+* HackRice Webapp CSS
+*
+*/
+
+/* Grid Extension
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.container-fluid {
+    position: relative;
+    max-width: none;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Droid Sans", sans-serif;
+}
+
+p {
+    font-family: "Droid Serif", sans-serif;
+}
+
+/* Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+a {
+    color: #F4B85C;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #E7CCA3;
+}
+
+/* Button
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    height: 35px;
+    line-height: 35px;
+    padding: 0 20px;
+    background-color: #fff;
+    text-transform: none;
+    font-family: "Droid Sans";
+    font-size: .9em;
+    letter-spacing: 0;
+}
+
+/* wtf forms overrides
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.control-indicator {
+    line-height: 1.4rem;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+/* skeleton forms overrides
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+label > .label-body {
+    margin-left: .7rem;
+}
+
+/* Full page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    height: 90%;
+    background: #262E44;
+    color: #fff;
+}
+
+/* Navbar
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+nav {
+    margin: 30px 30px 25px 30px;
+    font-family: "Droid Sans";
+    color: #fff;
+}
+
+nav #hr-logo {
+    height: 70px;
+    width: 70px;
+}
+
+nav #active-user {
+    font-size: 1.24857em;
+    padding: 0 45px;
+}
+
+/* For demo only */
+nav #active-user::after {
+    content: '12';
+    position: absolute;
+    font-size: 1rem;
+    background: red;
+    margin-left: 0.5rem;
+    line-height: 1rem;
+    border-radius: 50%;
+    padding: 0.25rem 0.30rem 0.275rem 0.2rem;
+}
+
+nav #nav-bars, #sidebar #sidebar-close {
+    cursor: pointer;
+}
+
+/* Float container right, collapse nav items left */
+nav .nav-container {
+    float: right;
+}
+
+nav ul.nav {
+    float: left;
+    list-style: none;
+}
+
+nav ul.nav > li {
+    float: left;
+    margin: 0;
+}
+
+/* Sidebar
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#sidebar {
+    /* Count padding into total width */
+    box-sizing: border-box;
+    z-index: 999;
+    position: fixed;
+    width: 380px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding: 30px;
+    background: #222;
+    /* Typography */
+    font-family: "Droid Serif";
+    /* Drop shadow */
+    -webkit-box-shadow: -6px 0px 20px -1px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: -6px 0px 20px -1px rgba(0, 0, 0, 0.6);
+    box-shadow: -6px 0px 20px -1px rgba(0, 0, 0, 0.6);
+    /* Transitions */
+    -webkit-transition: right 0.55s ease-in-out;
+    transition: right 0.55s ease-in-out;
+}
+
+.sidebar-collapse {
+    right: -380px !important; /* 320 + 30 + 30 */
+}
+
+#sidebar #sidebar-close {
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+}
+
+#sidebar #sidebar-close:hover {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+#sidebar h6 {
+    font-size: 1.75rem;
+    margin-bottom: 5px;
+}
+
+#sidebar hr.small {
+    margin: 0 0 25px 0;
+    width: 240px;
+}
+
+#sidebar ul {
+    list-style: none;
+}
+
+#sidebar li {
+    margin-bottom: 15px;
+}
+
+/* Review section
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#review {
+    height: 100%;
+}
+
+#review #review-form {
+    background-color: #1F2638;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 45px;
+    max-height: 850px;
+    overflow-y: scroll;
+}
+
+#review .form-hr {
+    margin: 0 0 20px 0;
+}
+
+#review .form-block {
+    margin-bottom: 20px;
+}
+
+#review label {
+    font-family: "Droid Sans";
+    font-weight: 300;
+}
+
+#review label.inline-label {
+    display: inline-block;
+}
+
+#review label.lead-label {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+#review label:not(.lead-label) {
+    color: #ddd;
+    margin-bottom: 1.2rem;
+}
+
+#review input:not([type='submit']), textarea, select {
+    color: #000;
+    font-family: "Droid Sans"
+}
+
+#review #app-links ul {
+    list-style: none;
+    margin: 0;
+}
+
+#review #app-links ul > li {
+    float: left;
+    margin: 0 15px;
+}
+
+#review #embed-container {
+    height: 100%;
+}
+
+#review #resume {
+    width: 100%;
+    height: 100%;
+    max-height: 850px;
+    border: none;
+}
+
+/* For debugging */
+.mark-boundary {
+    border: 1px solid #fff;
+}
