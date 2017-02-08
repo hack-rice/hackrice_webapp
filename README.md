@@ -29,11 +29,7 @@ A website for submitting and reviewing applications to HackRice 2017. More info 
 
 ## Contributors
 
-[@jarroddunne](http://github.com/jarroddunne)
-
-[@smahesh1](http://github.com/smahesh1)
-
-[@prb2](http://github.com/prb2)
+https://github.com/hack-rice/hackrice_webapp/graphs/contributors
 
 ## License
 
