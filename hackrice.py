@@ -1,7 +1,9 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from .forms import ApplyForm
 
 app = Flask(__name__)
+app.config.from_object('config')
 db = SQLAlchemy(app)
 from users import make_fake_users, User
 
@@ -11,7 +13,8 @@ def index():
     """
     Loads the index page.
     """
-    return render_template('index.html')
+    form = ApplyForm()
+    return render_template('index.html', form = form)
 
 
 @app.route('/scoring')
