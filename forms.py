@@ -16,3 +16,13 @@ class ApplyForm(Form):
 
 	
 
+class ReviewForm(Form):
+	projects_exist = BooleanField('rvw_projects_exist')
+	projects_sig = BooleanField('rvw_projects_sig') #If project is significant
+	website_exists = BooleanField('rvw_website_exists')
+	internship = BooleanField('rvw_internship')
+	cs_award = BooleanField('rvw_cs_award')
+	research_or_startup = BooleanField('rvw_r_or_s')
+	answered_frq = BooleanField('rvw_answered_frq')
+	good_frq_answer = BooleanField('rvw_good_frq_answer')
+	
