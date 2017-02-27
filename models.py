@@ -1,16 +1,16 @@
 import datetime
-
+from flask_sqlalchemy import SQLAlchemy
 from hackrice import db
 
 
-class Applicant(db.Model):
+class Applicant(db.model):
     """
     Represents an applicant to HackRice. Initially, status is set to 0 for a non-reviewed application.
     Afterwards, status will be either (1) for accepted (2) for hold or (3) for rejected.
     The store will be used to automatically set the status, and initially the score is set to -1, which
     represents an unscored/unreviewed application.
     """
-    id = db.Column(db.INTEGER, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
     email = db.Column(db.String, unique=True)
@@ -19,72 +19,34 @@ class Applicant(db.Model):
     resume = db.Column(db.LargeBinary)
     git_hub = db.Column(db.String(200))
     linked_in = db.Column(db.String(200))
-    score = db.Column(db.INTEGER, default=-1)
-    status = db.Column(db.INTEGER)
-    created_at = db.Column(db.INTEGER, default=datetime.datetime.now)
-
-    def __init__(self, first_name, last_name, email, date, org, resume, git_hub, linked_in, score, status):
-        """
-        Initializes Applicant Object
-        """
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.date = date
-        self.org = org
-        self.resume = resume
-        self.git_hub = git_hub
-        self.linked_in = linked_in
-        self.score = score
-        self.status = status
-
+    score = db.Column(db.Integer, default=-1)
+    status = db.Column(db.Integer)
+    created_at = db.Column(db.Integer, default=datetime.datetime.now)
 
 class Reviewer(db.Model):
-    """
-    Hackrice Reviewer database model.
-    """
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    email = db.Column(db.String(80), unique=True)
-    name = db.Column(db.String(60), index=True)
-
-
-    def __init__(self,email,name):
-        """
-        Initializes Reviewer Object
-        """
-        self.email = email
-        self.name = name
+	"""
+	Hackrice Reviewer database model.
+	"""
+    id = db.Column(db.Integer, primary_key=True, autoincrement = True)
+    email = db.Column(db.String(80), unique = True)
+    name = db.Column(db.String(60), index = True)
 
     def __repr__(self):
         return '<Reviewer %r>' % (self.name)
 
-class Acceptance(db.Model):
+class Review_Form(db.Model):
     """
-    Hack Rice Database schema for Acceptance responses from accepted applicants. Should have a relationship with
-    applicant model id.
+    Database model for reviewing applications
     """
-
-    id = db.Column(db.INTEGER, primary_key=True, autoincrement=True)
-    attending = db.Column(db.BOOLEAN)
-    shirt = db.Column(db.String(10))
-    sleep_arange = db.Column(db.String(10))
-    traveling = db.Column(db.String(80))
-    travel_cost = db.Column(db.Integer)
-    diet = db.Column(db.String(200))
-
-    # Potentially make acceptance id the primary key?
-    applicant_id = db.Column(db.Integer, db.ForeignKey('applicant.id'))
-    applicant = db.relationship('Applicant',
-                                backref=db.backref('acceptance', lazy='dynamic'))
-
-    def __init__(self,attending,shirt,sleep_arrange,traveling,travel_cost,diet):
-        """
-        Initializes Acceptance Object
-        """
-        self.attending = attending
-        self.shirt = shirt
-        self.sleep_arange = sleep_arrange
-        self.traveling = traveling
-        self.travel_cost = travel_cost
-        self.diet = diet
-
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    applicant_email = db.Column(db.String(80), unique = True)
+    applicant_name = db.Column(db.String(60), index =True)
+    projects_exist = db.Column(db.Boolean, server_default = False)
+    projects_sig = db.Column(db.Boolean, server_default = False)
+    website_exist = db.Column(db.Boolean, server_default = False)
+    internship = db.Column(db.Boolean, server_default = False)
+    cs_award = db.Column(db.Boolean, server_default = False)
+    research_or_startup = db.Column(db.Boolean, server_default = False)
+    answered_frq = db.Column(db.Boolean, server_default = False)
+    good_frq_answer = db.Column(db.Boolean, server_default = False)
+    score = db.Column(db.Integer, inex = True)
