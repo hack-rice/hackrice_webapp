@@ -22,10 +22,11 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/wtf-forms.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="../static/styles/Skeleton/css/normalize.css">
+  <link rel="stylesheet" href="../static/styles/Skeleton/css/skeleton.css">
+  <link rel="stylesheet" href="../static/styles/wtf-forms/wtf-forms.css">
+  <link rel="stylesheet" href="../static/styles/unified.css">
+  <link rel="stylesheet" href="../static/styles/review.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -37,7 +38,7 @@
   <!-- Navbar -->
   <nav>
 
-    <img id="hr-logo" src="img/logo.png">
+    <img id="hr-logo" src="../static/logo.png">
 
     <!-- Navbar elements -->
     <div class="nav-container">
@@ -90,10 +91,10 @@
   <div id="review" class="container container-fluid">
     <div class="row" style="height:100%;">
 
-      <div class="five columns" id="review-form">
-        <h5 style="margin-bottom:5px;">Reviewing: Al Gorithm</h5>
+      <div class="five columns" id="form-container">
+        <h5 style="margin-bottom:5px;">Reviewing: Al Gorithm&emsp;(UID: {{ uid }})</h5>
         <hr class="form-hr">
-        <form>
+        <form id="review-form">
           <div class="row form-block">
             <div class="twelve columns">
               <label class="lead-label" for="riceUH">Rice or University of Houston Student?</label>
@@ -210,7 +211,7 @@
             </div>
           </div>
 
-          <input class="button-primary" type="submit" value="Submit">
+          <input class="button-primary" id="submit-review" type="submit" value="Submit">
         </form>
         
       </div>
@@ -240,7 +241,7 @@
           -->
 
           <!-- files must be public.. -->
-          <iframe id="resume" src="static/sample-resume.pdf" type="application/pdf"></iframe>
+          <iframe id="resume" src="../static/sample-resume.pdf" type="application/pdf"></iframe>
         </div>
       </div>
     </div>
@@ -252,12 +253,52 @@
 <script>
 $(function() {
 
+  // Initialization
+  var uid = "{{ uid }}";
+  var getURL = "application/" + uid;
+  window.alert("GET " + getURL);
+  /*
+    $.get(getURL, function(data) {
+      // ensure get was successful
+      // set github/linkedin/pdf URLs
+    });
+  */
+
+  // Sidebar 
   $('#nav-bars').click(function() {
     $('#sidebar').toggleClass('sidebar-collapse');
   });
 
   $('#sidebar-close').click(function() {
     $('#sidebar').toggleClass('sidebar-collapse');
+  });
+
+  // Form actions
+  $('#submit-review').click(function(e) {
+    e.preventDefault();
+
+    // Score form
+    var total = 0;
+    $('#review *').filter(':input').each(function(index, value) {
+      // console.log(index, value);
+
+      // Replace this with real scoring formula later
+      if (value.checked) {
+        total += 1;
+      }
+
+    });
+    
+    window.alert("Review for application " + uid +" was submitted with score " + total);
+    var postURL = "application/" + uid;
+    window.alert("POST " + postURL);
+
+    /*
+      $.post(postURL, { uid: uid, score: total }, function(data) {
+        // ensure post was successful
+      });
+    */
+
   });
 
 });

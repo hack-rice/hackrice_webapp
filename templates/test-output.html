@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test output</title>
+</head>
+<body>
+<h1>Test database results</h1>
+{% for result in test_results %}
+
+    <p>{{ result.name }}</p>
+    <p>{{ result.email }}</p>
+
+{% endfor %}
+</body>
+</html>
