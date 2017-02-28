@@ -33,4 +33,3 @@ class Reviewer(db.Model):
 
     def __repr__(self):
         return '<Reviewer %r>' % (self.name)
-
