@@ -58,7 +58,6 @@ class Reviewer(db.Model):
     def __repr__(self):
         return '<Reviewer %r>' % (self.name)
 
-
 class Acceptance(db.Model):
     """
     Hack Rice Database schema for Acceptance responses from accepted applicants. Should have a relationship with
@@ -70,7 +69,7 @@ class Acceptance(db.Model):
     shirt = db.Column(db.String(10))
     sleep_arange = db.Column(db.String(10))
     traveling = db.Column(db.String(80))
-    travel_cost = db.Column(db.INTEGER)
+    travel_cost = db.Column(db.Integer)
     diet = db.Column(db.String(200))
 
     # Potentially make acceptance id the primary key?
@@ -88,3 +87,4 @@ class Acceptance(db.Model):
         self.traveling = traveling
         self.travel_cost = travel_cost
         self.diet = diet
+
