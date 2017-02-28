@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from .forms import ApplyForm
+from forms import ApplyForm
+# from .forms import ApplyForm
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -34,3 +35,10 @@ def review_admin():
     # selected = User(1, "Bob", 1, 1, 1)
     return render_template('review-admin.html', users=user_list)
 
+@app.route('/review-application/<uid>')
+def review_application(uid):
+    """
+    Loads the interface for reviewing an application 
+    corresponding to user with id `uid`.
+    """
+    return render_template('review.html', uid=uid)
