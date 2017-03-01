@@ -2,27 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HackRice Review - Admin</title>
+    <title>Reviewer Admin</title>
+    <!-- Mobile Specific Metas
+ –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONTS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="../static/styles/Skeleton/css/normalize.css">
     <link rel="stylesheet" href="../static/styles/Skeleton/css/skeleton.css">
-{#    <link rel="stylesheet" href="../static/styles/unified.css">#}
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-
+    <link rel="stylesheet" href="../static/styles/wtf-forms/wtf-forms.css">
+    <link rel="stylesheet" href="../static/styles/unified.css">
+    <link rel="stylesheet" href="../static/styles/review.css">
 </head>
-<body style="background-color: rgba(38,46,68,.05)">
-<div class="container">
-    <!--Navbar-->
-     <!-- Navbar -->
-  <nav>
 
-    <img id="hr-logo" src="static/logo.png">
+<body style="background-color: #1F2638">
 
+<!-- Navbar
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<nav>
+    <img id="hr-logo" src="../static/logo.png">
     <!-- Navbar elements -->
     <div class="nav-container">
-
+        <ul class="nav">
+            <li>
+                <span id="active-user">First Last</span>
+            </li>
+            <li><i id="nav-bars" class="fa fa-bars fa-2x"></i></li>
+        </ul>
     </div>
 
-  </nav>
+</nav>
+
+<!-- Sidebar
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<!-- Sidebar collapsed by default -->
+<div id="sidebar" class="sidebar-collapse">
+
+    <div class="row">
+        <h4 class="u-pull-left">
+            <i class="fa fa-fw fa-user-circle"></i>
+            First Last
+        </h4>
+
+        <div class="u-pull-right">
+            <div class="u-pull-left">
+                <i id="sidebar-close" class="fa fa-close fa-lg"></i></li>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+        <h6>
+            <i class="fa fa-fw fa-tasks"></i>&nbsp;Progress at a glance
+        </h6>
+        <hr class="small">
+        <ul>
+            <li>Your next deadline is <a>01/31/2017</a>.</li>
+            <li><a><b>12</b></a> applications left to review.</li>
+        </ul>
+    </div>
+
+    <button style="position:fixed; bottom:25px;"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Logout</button>
+</div>
+
+<!-- Primary body contents
+________________________________________   -->
+
+<div class="container">
     <div class="twelve columns">
         <div class="row">
             <div class="seven columns">
@@ -66,5 +122,33 @@
 </div>
 </body>
 
-<script type="text/javascript" src="../static/scripts/reviewer-jquery.js"></script>
+<!-- JS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCMNrbRYKe2-hTq9WG77Qh5tQYhCvnHiXU",
+    authDomain: "hackrice-webapp.firebaseapp.com",
+    databaseURL: "https://hackrice-webapp.firebaseio.com",
+    storageBucket: "hackrice-webapp.appspot.com",
+    messagingSenderId: "439199974172"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script>
+    $(function () {
+        // Sidebar
+        $('#nav-bars').click(function () {
+            $('#sidebar').toggleClass('sidebar-collapse');
+        });
+
+        $('#sidebar-close').click(function () {
+            $('#sidebar').toggleClass('sidebar-collapse');
+        });
+    });
+</script>
+
 </html>

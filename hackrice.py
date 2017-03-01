@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from forms import ApplyForm
 from users import make_fake_users
 import datetime
+import json
+from review_stack import get_next_applicant
 
 # from .forms import ApplyForm
 
@@ -127,6 +129,15 @@ def review_admin():
     return render_template('review-admin.html', users=user_list)
 
 
+@app.route('/get-new-app')
+def get_new_app():
+    """
+    This method is called to get the next application to be reviewed off the stack.
+    :return: the next application to be reviewed, in the form of an APPLICANT object.
+    """
+    return get_next_applicant(Applicant)
+
+
 @app.route('/review-application/<uid>')
 def review_application(uid):
     """
@@ -136,7 +147,10 @@ def review_application(uid):
 
     applicant = Applicant.query.filter_by(id=uid).first()
 
-    return render_template('review.html', user=applicant)
+    # This is a dummy statement, REMOVE IT
+    # TODO write a method that gets the current user, use Firebase API
+
+    return render_template('review.html', applicant=applicant, user=user)
 
 
 @app.route('/test')

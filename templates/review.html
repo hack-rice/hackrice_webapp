@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-y: hidden; height: 100vh">
 <head>
 
   <!-- Basic Page Needs
@@ -44,7 +44,7 @@
     <div class="nav-container">
       <ul class="nav">
           <li>
-            <span id="active-user">First Last</span>
+            <span id="active-user">{{ user.first_name }} {{ user.last_name }}</span>
           </li>
           <li><i id="nav-bars" class="fa fa-bars fa-2x"></i></li>
       </ul>
@@ -91,8 +91,8 @@
   <div id="review" class="container container-fluid">
     <div class="row" style="height:100%;">
 
-      <div class="five columns" id="form-container">
-        <h5 style="margin-bottom:5px;">Reviewing: Al Gorithm&emsp;(UID: {{ uid }})</h5>
+      <div class="five columns" id="form-container" style="height: 80vh">
+        <h5 style="margin-bottom:5px;">Reviewing: {{ applicant.first_name }} {{ applicant.last_name }}</h5>
         <hr class="form-hr">
         <form id="review-form">
           <div class="row form-block">
@@ -213,34 +213,38 @@
 
           <input class="button-primary" id="submit-review" type="submit" value="Submit">
         </form>
-        
+
       </div>
 
       <div class="seven columns" style="height:100%;">
         <div id="app-links" class="twelve columns">
-          <ul class="u-pull-right">
+
             <!-- <li><button><i class="fa fa-fw fa-file-text"></i>&nbsp;Resume</button></li> -->
 
             <!-- TODO: integrate Github API calls and some postprocessing to count contributions automatically -->
             <!-- Possibly this? https://github.com/IonicaBizau/github-calendar -->
+            <!--
+            <ul class="u-pull-right">
             <li>
-              <a class="button" href="https://github.com/torvalds" target="_blank">
+              <a class="button" href="{{ applicant.git_hub }}" target="_blank">
               <i class="fa fa-fw fa-github-square"></i>&nbsp;GitHub</a>
             </li>
 
             <li>
-              <a class="button" href="https://www.linkedin.com/in/linustorvalds/" target="_blank">
+              <a class="button" href="{{ applicant.linked_in }}" target="_blank">
               <i class="fa fa-fw fa-linkedin-square"></i>&nbsp;LinkedIn</a></li>
           </ul>
+          -->
 
         </div>
-        <div id="embed-container" class="twelve columns">
+        <div id="embed-container" class="twelve columns" style="height: 80vh">
           <!-- iframe?
           most pages don't allow embedding anyway...
           https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors
           -->
 
           <!-- files must be public.. -->
+            <!--TODO figure out how to store resumes-->
           <iframe id="resume" src="../static/sample-resume.pdf" type="application/pdf"></iframe>
         </div>
       </div>
@@ -249,6 +253,19 @@
 
 <!-- JS
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCMNrbRYKe2-hTq9WG77Qh5tQYhCvnHiXU",
+    authDomain: "hackrice-webapp.firebaseapp.com",
+    databaseURL: "https://hackrice-webapp.firebaseio.com",
+    storageBucket: "hackrice-webapp.appspot.com",
+    messagingSenderId: "439199974172"
+  };
+  firebase.initializeApp(config);
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 <script>
 $(function() {
@@ -256,7 +273,7 @@ $(function() {
   // Initialization
   var uid = "{{ uid }}";
   var getURL = "application/" + uid;
-  window.alert("GET " + getURL);
+  /*window.alert("GET " + getURL);*/
   /*
     $.get(getURL, function(data) {
       // ensure get was successful
@@ -264,7 +281,7 @@ $(function() {
     });
   */
 
-  // Sidebar 
+  // Sidebar
   $('#nav-bars').click(function() {
     $('#sidebar').toggleClass('sidebar-collapse');
   });
@@ -288,10 +305,12 @@ $(function() {
       }
 
     });
-    
+
+      /*
     window.alert("Review for application " + uid +" was submitted with score " + total);
     var postURL = "application/" + uid;
     window.alert("POST " + postURL);
+    */
 
     /*
       $.post(postURL, { uid: uid, score: total }, function(data) {

@@ -47,7 +47,7 @@ body {
 	background-color: #1F2638;
 	border-radius: 20px;
 	padding: 20px;
-	margin-top: 45px;
+	/*margin-top: 45px;*/
 	max-height: 850px;
 	overflow-y: scroll;
 }

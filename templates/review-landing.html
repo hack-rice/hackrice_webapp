@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviewer Home</title>
+
+    <!-- Mobile Specific Metas
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONTS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="../static/styles/Skeleton/css/normalize.css">
+    <link rel="stylesheet" href="../static/styles/Skeleton/css/skeleton.css">
+    <link rel="stylesheet" href="../static/styles/wtf-forms/wtf-forms.css">
+    <link rel="stylesheet" href="../static/styles/unified.css">
+    <link rel="stylesheet" href="../static/styles/review.css">
+</head>
+<body>
+
+<!-- Navbar
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<nav>
+    <img id="hr-logo" src="../static/logo.png">
+    <!-- Navbar elements -->
+    <div class="nav-container">
+        <ul class="nav">
+            <li>
+                <span id="active-user">{{ user.first_name }} {{ user.last_name }}</span>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+
+<!-- Primary content
+_______________________________ -->
+
+<div class="container">
+    <div class="offset-by-two four columns">
+        <div class="row">
+            <h6>
+                <i class="fa fa-fw fa-tasks"></i>&nbsp;Your status
+            </h6>
+            <hr class="small">
+            <ul>
+                <li>Your next deadline is <a>{{ user.due_date }}</a>.</li>
+                <li><a><b>{{ user.apps_due }}</b></a> applications left to review.</li>
+                <li>You've reviewed <a>{{ user.apps_reviewed }}</a> applications</li>
+            </ul>
+        </div>
+    </div>
+    <div class="four columns">
+        <div class="row">
+            <h6>
+                &nbsp;Actions
+            </h6>
+            <hr class="small">
+            <button class="u-full-width" id="review_new_app">Review another app!</button>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCMNrbRYKe2-hTq9WG77Qh5tQYhCvnHiXU",
+    authDomain: "hackrice-webapp.firebaseapp.com",
+    databaseURL: "https://hackrice-webapp.firebaseio.com",
+    storageBucket: "hackrice-webapp.appspot.com",
+    messagingSenderId: "439199974172"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script>
+ $(document).ready(function(){
+    $("#review_new_app").click(function(){
+        $.get("/get-next-app", function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+    });
+});
+</script>
+</html>
